@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/mainLayout}">
+
+<th:block layout:fragment="css">
+    <style>
+        .fieldError {
+            color: #bd2130;
+        }
+    </style>
+</th:block>
+
+
+<th:block layout:fragment="script">
+</th:block>
+
+<div layout:fragment="content">
+    <table>
+        <thead>
+            <tr>
+                <td>No</td>
+                <td>status</td>
+                <td>제목</td>
+                <td>조회수</td>
+                <td>작성자</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="choiceList : ${choiceList}">
+                <td th:text="${choiceList.id}"></td>
+                <td th:text="${choiceList.qStatus}"></td>
+                <td th:text="${choiceList.subject}"></td>
+                <td th:text="${choiceList.hit}"></td>
+                <td th:text="${choiceList.nickName}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</html>
